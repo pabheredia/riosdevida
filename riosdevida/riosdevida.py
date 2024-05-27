@@ -3,6 +3,12 @@
 import reflex as rx
 from riosdevida.main.Componentes.link_button import link_button1
 from riosdevida.main.main_stack import main_stack
+from riosdevida.main.inicio.galeria import galeria_stack
+from riosdevida.main.inicio.inicio import inicio
+from riosdevida.main.inicio.info import info_stack
+from riosdevida.main.inicio.links import links_stack
+from riosdevida.main.versiculos.hechos1_8 import hechos1_8
+from riosdevida.main.versiculos.hechos1_8 import mateo
 
 
 def index() -> rx.Component:
@@ -28,9 +34,38 @@ def index() -> rx.Component:
 
 
 def main() -> rx.Component:
-    return main_stack()
+    return main_stack(inicio())
 
 
-app = rx.App()
+def galeria() -> rx.Component():
+    return main_stack(galeria_stack())
+
+
+def informacion() -> rx.Component:
+    return main_stack(info_stack())
+
+
+def links() -> rx.Component:
+    return main_stack(links_stack())
+
+
+def hechos() -> rx.Component:
+    return main_stack(hechos1_8())
+
+
+def mateo7() -> rx.Component:
+    return main_stack(mateo())
+
+
+app = rx.App(
+    theme=rx.theme(
+        appearance="light", has_background=True, radius="large", accent_color="teal"
+    )
+)
 app.add_page(index)
 app.add_page(main)
+app.add_page(galeria)
+app.add_page(informacion, route="/info")
+app.add_page(links(), route="/links")
+app.add_page(hechos(), route="/hechos1_8")
+app.add_page(mateo7(), route="/mateo71314")

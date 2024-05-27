@@ -4,11 +4,14 @@ from riosdevida.main.Componentes.lista_menu import lista_item
 
 def drawer() -> rx.Component:
     return rx.drawer.root(
-        rx.drawer.trigger(rx.button(
-                                rx.icon(tag="menu"),
-                                "Índice",
-                                radius="full"
-                            )),
+        rx.drawer.trigger(
+            rx.button(
+                rx.icon(tag="menu"),
+                "Índice",
+                radius="full",
+                color_scheme="ruby"
+            )
+        ),
         rx.drawer.overlay(z_index="5"),
         rx.drawer.portal(
             rx.drawer.content(
